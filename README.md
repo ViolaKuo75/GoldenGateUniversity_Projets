@@ -3,13 +3,13 @@
   - Examined different factors in time series by pinpointing trends and patterns to forecast the sales in the following year. Created the KPI criteria in      illustrated Tableau dashboard and presented in Google Slides. 
   - Utilized the statistical tool of R Studio to investigate data collected from various sources relevant to the three-year reporting period.
 **MSBA 307: What is Credit Card Fraud Detection, and How can We Prevent**
-  • Used Python to perform machine learning algorithms on credit card fraud detection.
-  • Applied descriptive analytics, logistics regression classifier, and random forest classifier (RFC) to examine the probability of chance that the facility is able to detect and predict the fraud transaction. 
-  • Understand the usage of the classifiers and fraud detection, the work has been presented through the PowerPoint slides.
+  - Used Python to perform machine learning algorithms on credit card fraud detection.
+  - Applied descriptive analytics, logistics regression classifier, and random forest classifier (RFC) to examine the probability of chance that the facility is able to detect and predict the fraud transaction. 
+  - Understand the usage of the classifiers and fraud detection, the work has been presented through the PowerPoint slides.
 **MSBA 320: Statistics Analysis For International Soccer Team Performance**
-  • Using R studio to learn the performance of international soccer teams performance by selected cities
-  • Applying descriptive analysis, regression analysis, time series forecasting, and ANOVA 
-  • Comparing the relationship between the selected variables and forecasting the performance in the next year
+  - Using R studio to learn the performance of international soccer teams performance by selected cities
+  - Applying descriptive analysis, regression analysis, time series forecasting, and ANOVA 
+  - Comparing the relationship between the selected variables and forecasting the performance in the next year
 **MSBA 326: Cannabis Monthly Tax Revenue: Analysis of Relevant Factors & Predictive Model**
   • Analysis research project accepted by the Journal of Economics and Research, which aims to discover the state of Colorado economic impact by legalizing Cannabis. 
   • Adapting data description, model correlation, and time-series modeling section through Python to test the relationship between the variables from Cannabis being legalized in 2014 to March 2022.
