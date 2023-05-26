@@ -1,0 +1,240 @@
+---
+title: "Final Project - En-Chi Kuo"
+author: "En-Chi Kuo"
+date: "4/11/2022"
+output: html_document
+---
+*International Soccer Team Performance*
+
+Import the data
+```{r}
+result <- read.csv("~/Downloads/results.csv", header=T)
+head(result)
+```
+Specific countries  to focus on
+```{r}
+library(dplyr)
+England <- filter(result, country == "England" )
+France <- filter(result, country == "France")
+Italy <- filter(result, country == "Italy")
+Malaysia <- filter(result, country == "Malaysia")
+Sweden <- filter(result, country == "Sweden" )
+Spain <- filter(result, country == "Spain")
+US <- filter(result, country == "United States")
+new <- rbind(England, France, Italy, Malaysia, Spain, Sweden, US)
+```
+
+
+```{r}
+summary(new)
+```
+
+Extracting the dates and year of the variable date
+```{r}
+dates <- as.POSIXct(new$date, format = "%Y-%m-%d")
+year<-format(dates,format="%Y")
+```
+
+Convert Neutral from ture and false to 0 and 1
+```{r}
+Neutral <- as.integer(new$neutral)
+```
+
+Top 5 games held in the data
+```{r}
+games_play <- new %>% count(tournament)
+Top5 <- games_play %>% top_n(5,n)
+head(Top5)
+```
+
+
+```{r}
+hist(new$home_score) 
+```
+```{r}
+hist(new$away_score)
+```
+```{r}
+hist(Neutral)
+```
+Total home score per year by country
+```{r}
+library(ggplot2)
+ggplot(new, aes(x = year, y = home_score, group = country, colour = country)) + 
+  geom_line() +
+  facet_wrap(~country, scales = 'free_x')
+```
+
+Neutral based on home_score by country
+```{r}
+ggplot(new, aes(x = country, y = home_score, group = neutral, colour = neutral)) + 
+  geom_line() +
+  facet_wrap(~country, scales = 'free_x')
+```
+
+Regression Analysis
+```{r}
+plot(home_score~away_score, data = new)
+```
+```{r}
+plot(year~Neutral)
+```
+```{r}
+score <- lm(home_score~away_score, data = new)
+summary(score)
+```
+
+
+Time Series Analysis: Home Team (England)
+```{r}
+library(lubridate)
+TEngland <- ts(cbind(England$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TEngland, xlab ="Home Team Score Data", 
+    main ="International Soccer Game: Home Team Performance (England)",
+    col.main ="navy")
+summary(TEngland)
+```
+Time Series Forecasting Analysis: Home Team (England)
+```{r}
+library(forecast)
+myforecast1 <- snaive(TEngland, h=12)
+autoplot(myforecast1)
+```
+```{r}
+summary(myforecast1)
+```
+
+Time Series Analysis: Home Team (France)
+```{r}
+TFrance <- ts(cbind(France$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TFrance, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TFrance)
+```
+Time Series Forecasting Analysis: Home Team (France)
+```{r}
+myforecast2 <- snaive(TFrance, h=12)
+autoplot(myforecast2)
+```
+```{r}
+summary(myforecast2)
+```
+
+
+Time Series Analysis: Home Team (Malaysia)
+```{r}
+TMalaysia <- ts(cbind(Malaysia$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TMalaysia, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TMalaysia)
+```
+Time Series Forecasting Analysis: Home Team (France)
+```{r}
+myforecast3 <- snaive(TMalaysia, h=12)
+autoplot(myforecast3)
+```
+```{r}
+summary(myforecast3)
+```
+
+Time Series Analysis: Home Team (Italy)
+```{r}
+TItaly <- ts(cbind(Italy$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TItaly, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TItaly)
+```
+
+Time Series Forecasting Analysis: Home Team (Italy)
+```{r}
+myforecast4 <- snaive(TItaly, h=12)
+autoplot(myforecast4)
+```
+```{r}
+summary(myforecast4)
+```
+
+
+Time Series Analysis: Home Team (Spain)
+```{r}
+TSpain <- ts(cbind(Spain$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TSpain, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TSpain)
+```
+
+Time Series Forecasting Analysis: Home Team (Spain)
+```{r}
+myforecast5 <- snaive(TSpain, h=12)
+autoplot(myforecast5)
+```
+```{r}
+summary(myforecast5)
+```
+
+Time Series Analysis: Home Team (Sweden)
+```{r}
+TSweden <- ts(cbind(Sweden$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TSweden, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TSweden)
+```
+
+Time Series Forecasting Analysis: Home Team (Sweden)
+```{r}
+myforecast6 <- snaive(TSweden, h=12)
+autoplot(myforecast6)
+```
+```{r}
+summary(myforecast6)
+```
+
+
+Time Series Analysis: Home Team (US)
+```{r}
+TUS <- ts(cbind(US$home_score), start = c(2010,1),end=c(2022,3),frequency = 12)
+ 
+# plotting the graph
+plot(TUS, xlab ="Awat Team Score Data", 
+    main ="International Soccer Game: Away Team Performance",
+    col.main ="navy")
+summary(TUS)
+```
+
+Time Series Forecasting Analysis: Home Team (US)
+```{r}
+myforecast7 <- snaive(TUS, h=12)
+autoplot(myforecast7)
+```
+```{r}
+summary(myforecast7)
+```
+
+
+
+ANOVA
+```{r}
+model1 <- lm(new$home_score~new$away_score, new)
+plot(model1)
+coef(model1)
+anova(model1)
+```
+
+
