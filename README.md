@@ -2,7 +2,7 @@
 1. MSBA 305: Walmart Weekly Sales Report
   • Examined different factors in time series by pinpointing trends and patterns to forecast the sales in the following year. Created the KPI criteria in      illustrated Tableau dashboard and presented in Google Slides. 
   • Utilized the statistical tool of R Studio to investigate data collected from various sources relevant to the three-year reporting period.
-2.MSBA 307: What is Credit Card Fraud Detection, and How can We Prevent
+2. MSBA 307: What is Credit Card Fraud Detection, and How can We Prevent
   • Used Python to perform machine learning algorithms on credit card fraud detection.
   • Applied descriptive analytics, logistics regression classifier, and random forest classifier (RFC) to examine the probability of chance that the facility is able to detect and predict the fraud transaction. 
   • Understand the usage of the classifiers and fraud detection, the work has been presented through the PowerPoint slides.
