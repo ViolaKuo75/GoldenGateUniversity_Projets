@@ -1,0 +1,106 @@
+---
+title: "MSBA 305 Final Project"
+output:
+  html_document:
+    df_print: paged
+---
+
+Walmart Table
+```{r}
+walmart <- read.csv("~/Downloads/Walmart.csv", header = T)
+head(walmart)
+```
+
+```{r}
+summary(walmart)
+```
+
+Regression Analysis: Normal Distribution
+```{r}
+hist(walmart$Weekly_Sales)
+```
+
+```{r}
+hist(walmart$Holiday_Flag)
+```
+
+
+```{r}
+hist(walmart$Temperature)
+```
+
+```{r}
+hist(walmart$Fuel_Price)
+```
+
+```{r}
+hist(walmart$CPI)
+```
+
+```{r}
+hist(walmart$Unemployment)
+```
+
+Regression Analysis: Linearity
+```{r}
+plot(Holiday_Flag~walmart$Weekly_Sales, data = walmart)
+```
+
+```{r}
+plot(Unemployment~walmart$Weekly_Sales, data = walmart)
+```
+```{r}
+plot(CPI~walmart$Weekly_Sales, data = walmart)
+```
+```{r}
+plot(CPI~Unemployment, data = walmart)
+```
+
+```{r}
+plot(Holiday_Flag~Temperature, data = walmart)
+```
+Linear Regression
+```{r}
+sales <- lm(Weekly_Sales~Holiday_Flag+Temperature+Fuel_Price+CPI+Unemployment, data = walmart)
+
+summary(sales)
+```
+
+Time Series Analysis
+```{r}
+library(lubridate)
+SalesT <- ts(cbind(walmart$Weekly_Sales), start = c(2010,2),end=c(2012,10),frequency = 12)
+ 
+# plotting the graph
+plot(SalesT, xlab ="Weekly Data", 
+    main ="Walmart Weekly Sales",
+    col.main ="navy")
+```
+
+```{r}
+summary(SalesT)
+```
+
+```{r}
+library(forecast)
+mymodel <- auto.arima(walmart$Weekly_Sales)
+mymodel
+```
+
+```{r}
+myforecast <- snaive(SalesT, h=12)
+autoplot(myforecast)
+```
+```{r}
+summary(myforecast)
+```
+
+
+
+
+
+
+
+
+
+
