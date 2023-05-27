@@ -1,4 +1,9 @@
 # Golden Gate University Acdemic Projects + Internship
+**MSBA 304: Human Rresourse Relationship Analysis**
+  - Analyzed and compared the data throughout various companies using SQL
+  - Created graphs using SQL and Excel to support, and presented on Microsoft PowerPoint
+  - Presented in class with 30+ people and received an “A”
+
 **MSBA 305: Walmart Weekly Sales Report**
   - Examined different factors in time series by pinpointing trends and patterns to forecast the sales in the following year. Created the KPI criteria in      illustrated Tableau dashboard and presented in Google Slides. 
   - Utilized the statistical tool of R Studio to investigate data collected from various sources relevant to the three-year reporting period.
